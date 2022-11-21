@@ -12,6 +12,7 @@ lerna-debug.log*
 =======
 >>>>>>> d76ea0525a8a9daec38dff7062aef9f2b333814c
 .idea/
+
 .env
 node_modules
 dist
