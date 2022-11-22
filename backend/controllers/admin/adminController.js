@@ -1,4 +1,4 @@
-const Admin = require("../../models/Admin/adminModel");
+const Admin = require("../../models/admin/adminModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
@@ -41,21 +41,23 @@ const CreateAdmin = async (req, res) => {
     }
 };
 
-
-// login user
-const Login = async (req, res) => {
+//login admin
+const LoginAdmin = async (req, res) => {
     try {
-        const existingUser = await User.findOne({email: req.body.email});
-        if (!existingUser) {
+        const existingAdmin = await Admin.findOne
+        ({
+            email: req.body.email,
+        });
+        if (!existingAdmin) {
             return res.status(400).send({
-                message: "User does not exist",
+                message: "Admin does not exist",
                 success: false,
                 data: null,
             });
         }
         const isPasswordCorrect = await bcrypt.compare(
             req.body.password,
-            existingUser.password
+            existingAdmin.password
         );
         if (!isPasswordCorrect) {
             return res.status(400).send({
@@ -64,18 +66,18 @@ const Login = async (req, res) => {
                 data: null,
             });
         }
-        const token = jwt.sign(
-            {userId: existingUser._id},
+        const tokenAdmin = jwt.sign(
+            {adminId: existingAdmin._id},
             process.env.TOKEN_SECRET,
             {
                 expiresIn: "1h",
             }
         );
         res.status(200).send({
-            message: "User logged in successfully",
+            message: "Admin logged in successfully",
             success: true,
-            token: token,
-            user: existingUser,
+            token: tokenAdmin,
+            admin: existingAdmin,
         });
     } catch (error) {
         res.status(500).send({
@@ -85,6 +87,7 @@ const Login = async (req, res) => {
         });
     }
 };
+
 
 module.exports = {
     CreateAdmin,
