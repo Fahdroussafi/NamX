@@ -10,7 +10,9 @@ const bodyParser = require("body-parser");
 app.use(express.json());
 app.use(bodyParser.json());
 
+
 app.use("/api/auth", require("./routes/authRoutes"));
+app.use("/api/admin", require("./routes/admin/adminRoutes"));
 
 // listen to port
 app.listen(port, () => {
