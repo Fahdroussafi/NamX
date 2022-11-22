@@ -3,7 +3,7 @@ const app = express();
 require("dotenv").config();
 // const cors = require("cors");
 const port = process.env.PORT || 5000;
-require("../../NamX-1/backend/config/dbConfig");
+require("../../NamX/backend/config/dbConfig");
 const bodyParser = require("body-parser");
 
 // app.use(cors());
