@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/admin", require("./routes/admin/adminRoutes"));
+app.use("/api/car", require("./routes/admin/carRoutes"));
 
 // listen to port
 app.listen(port, () => {
