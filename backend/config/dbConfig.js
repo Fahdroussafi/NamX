@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
+
 mongoose.connect(process.env.mongo_url); //donpmt env
+
+
+
 
 const db = mongoose.connection;
 
