@@ -1,18 +1,18 @@
 const Type = require("../../models/admin/typeModel");
 
-// create new type
+// create new type with options from details collection
 const CreateType = async (req, res) => {
     try {
-        const {max_speed, km_range, horsepower, price, type_name, stock} = req.body;
+        const {type_name, details_id} = req.body;
         const newType = new Type({
-            max_speed,
-            km_range,
-            horsepower,
-            price,
             type_name,
-            stock,
+            details_id,
         });
-        const type = await Type.findOne({type_name});
+        // check if type name already exists
+        const type = await Type.findOne
+        ({
+            type_name,
+        });
         if (type) {
             return res.status(400).send({
                 success: false,
@@ -32,7 +32,7 @@ const CreateType = async (req, res) => {
             errorMessage: error.message,
         });
     }
-};
+}
 
 module.exports = {
     CreateType,
