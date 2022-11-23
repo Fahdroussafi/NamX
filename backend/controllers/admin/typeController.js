@@ -3,13 +3,14 @@ const Type = require("../../models/admin/typeModel");
 // create new type
 const CreateType = async (req, res) => {
     try {
-        const {max_speed, km_range, horsepower, price, type_name} = req.body;
+        const {max_speed, km_range, horsepower, price, type_name, stock} = req.body;
         const newType = new Type({
             max_speed,
             km_range,
             horsepower,
             price,
             type_name,
+            stock,
         });
         const type = await Type.findOne({type_name});
         if (type) {
