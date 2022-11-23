@@ -1,29 +1,42 @@
 const Car = require("../../models/admin/carModel");
 const Type = require("../../models/admin/typeModel");
 
-
 // create new car by type
 const CreateCar = async (req, res) => {
     try {
-        const existingCar = await Car.findOne({
-            name_car: req.body.name_car,
-        });
+        const {name_car, color} = req.body;
         const type = await Type.findById(req.params.type_id);
         if (!type) {
             return res.status(400).json({
                 message: "Type not found"
             });
         }
-        const car = new Car({
-            name_car: req.body.name_car,
-            color: req.body.color,
-            type_id: type._id,
+        const newCar = new Car({
+            name_car,
+            color,
+            type_id: req.params.type_id,
         });
-        const savedCar = await car.save();
-        res.send({
+        // check if car name already exists with the same type id and color
+        const car = await Car.findOne
+        (
+            {
+                name_car,
+                type_id: req.params.type_id,
+                color,
+            }
+        );
+        if (car) {
+            return res.status(400).send({
+                success: false,
+                message: "Car name or color or type already exists",
+            });
+        }
+
+        await newCar.save();
+        res.status(200).send({
+            success: true,
             message: "Car created successfully",
-            status: true,
-            data: savedCar,
+            data: newCar,
         });
     } catch (error) {
         res.send({
