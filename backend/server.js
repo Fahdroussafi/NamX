@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require("expgitress");
 const app = express();
 require("dotenv").config();
 // const cors = require("cors");
@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/admin", require("./routes/admin/adminRoutes"));
 app.use("/api/car", require("./routes/admin/carRoutes"));
+app.use("/api/type", require("./routes/admin/typeRoutes"));
 
 // listen to port
 app.listen(port, () => {
