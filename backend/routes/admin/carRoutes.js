@@ -3,9 +3,9 @@ const router = express();
 
 const {
     CreateCar,
-} = require("../../controllers/admin/adminController");
+} = require("../../controllers/admin/carController");
 
-router.post("/create-car", CreateCar);
+router.post("/create-car/:type_id", CreateCar);
 
 
 module.exports = router;
