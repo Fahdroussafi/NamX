@@ -33,7 +33,24 @@ const CreateType = async (req, res) => {
         });
     }
 }
+const GetAllTypes = async (req, res) => {
+    try {
+        const types = await Type.find();
+        res.status(200).send({
+            success: true,
+            message: "All types fetched successfully",
+            data: types,
+        });
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Internal server error",
+            errorMessage: error.message,
+        });
+    }
+}
 
 module.exports = {
     CreateType,
+    GetAllTypes,
 };
