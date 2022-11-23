@@ -32,7 +32,24 @@ const CreateDetails = async (req, res) => {
         });
     }
 }
+const GetAllDetails = async (req, res) => {
+    try {
+        const details = await Details.find();
+        res.status(200).send({
+            success: true,
+            message: "All details fetched successfully",
+            data: details,
+        });
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Internal server error",
+            errorMessage: error.message,
+        });
+    }
+}
 
 module.exports = {
     CreateDetails,
+    GetAllDetails
 };
