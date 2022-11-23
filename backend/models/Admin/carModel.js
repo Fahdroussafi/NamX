@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const adminSchema = new mongoose.Schema(
+const carSchema = new mongoose.Schema(
     {
         name_car: {
             type: String,
@@ -10,11 +10,15 @@ const adminSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        type_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "types",
+            required: true,
+        },
     },
     {
         timestamps: true,
     }
 );
 
-module.exports = mongoose.model("car", adminSchema);
-
+module.exports = mongoose.model("cars", carSchema);
