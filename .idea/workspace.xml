@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72bb42b1-9eb1-44b5-9e61-2346489d9a92" name="Changes" comment="add router.delete details">
-      <change afterPath="$PROJECT_DIR$/backend/controllers/admin/colorController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/controllers/admin/imageController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/Admin/colorModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/Admin/imageModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/admin/colorRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/admin/imageRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/admin/carController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/admin/carController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/admin/detailsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/admin/detailsController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/Admin/carModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/Admin/carModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/admin/colorController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/admin/colorController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/admin/imageController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/admin/imageController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/models/Admin/detailsModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/Admin/detailsModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/admin/carRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/admin/carRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/admin/detailsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/admin/detailsRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/admin/colorRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/admin/colorRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/admin/imageRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/admin/imageRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
