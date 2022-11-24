@@ -9,6 +9,10 @@ const detailsSchema = new mongoose.Schema(
         details_description: {
             type: String,
             required: true,
+        },
+        details_status: {
+            type: Boolean,
+            default: "true",
         }
     },
     {
