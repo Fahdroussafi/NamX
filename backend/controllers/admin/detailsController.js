@@ -1,6 +1,7 @@
 const Details = require("../../models/admin/detailsModel");
 const Type = require("../../models/admin/typeModel");
 
+
 // create new details
 const CreateDetails = async (req, res) => {
     try {
@@ -33,6 +34,7 @@ const CreateDetails = async (req, res) => {
         });
     }
 }
+//get all details
 const GetAllDetails = async (req, res) => {
     try {
         const details = await Details.find();
@@ -49,7 +51,6 @@ const GetAllDetails = async (req, res) => {
         });
     }
 }
-
 //delete details by id if used in type then delete it from type
 const DeleteDetails = async (req, res) => {
     try {

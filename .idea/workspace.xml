@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72bb42b1-9eb1-44b5-9e61-2346489d9a92" name="Changes" comment="add admin Routes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="72bb42b1-9eb1-44b5-9e61-2346489d9a92" name="Changes" comment="add router.delete details">
+      <change afterPath="$PROJECT_DIR$/backend/controllers/admin/colorController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/controllers/admin/imageController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/Admin/colorModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/Admin/imageModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/admin/colorRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/admin/imageRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controllers/admin/carController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/admin/carController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controllers/admin/detailsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/admin/detailsController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/Admin/carModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/Admin/carModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/Admin/detailsModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/Admin/detailsModel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/admin/carRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/admin/carRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/admin/detailsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/admin/detailsRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +95,35 @@
       <option name="project" value="LOCAL" />
       <updated>1669128338871</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="delete &amp; update car">
+      <created>1669287292979</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669287292979</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add router.delete &amp; router.put">
+      <created>1669287327909</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669287327909</updated>
+    </task>
+    <task id="LOCAL-00007" summary="delete details but not working 100%">
+      <created>1669287368548</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1669287368548</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add router.delete details">
+      <created>1669287392334</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1669287392334</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +146,10 @@
     <MESSAGE value="create adminModel.js" />
     <MESSAGE value="create adminRoutes.js" />
     <MESSAGE value="add admin Routes" />
-    <option name="LAST_COMMIT_MESSAGE" value="add admin Routes" />
+    <MESSAGE value="delete &amp; update car" />
+    <MESSAGE value="add router.delete &amp; router.put" />
+    <MESSAGE value="delete details but not working 100%" />
+    <MESSAGE value="add router.delete details" />
+    <option name="LAST_COMMIT_MESSAGE" value="add router.delete details" />
   </component>
 </project>

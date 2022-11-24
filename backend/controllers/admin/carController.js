@@ -4,7 +4,7 @@ const Type = require("../../models/admin/typeModel");
 // create new car by type
 const CreateCar = async (req, res) => {
     try {
-        const {name_car, color} = req.body;
+        const {name_car} = req.body;
         const type = await Type.findById(req.params.type_id);
         if (!type) {
             return res.status(400).json({
@@ -13,22 +13,19 @@ const CreateCar = async (req, res) => {
         }
         const newCar = new Car({
             name_car,
-            color,
             type_id: req.params.type_id,
         });
-        // check if car name already exists with the same type id and color
         const car = await Car.findOne
         (
             {
                 name_car,
                 type_id: req.params.type_id,
-                color,
             }
         );
         if (car) {
             return res.status(400).send({
                 success: false,
-                message: "Car name or color or type already exists",
+                message: "Car name or type already exists",
             });
         }
 
@@ -62,6 +59,7 @@ const GetAllCars = async (req, res) => {
         });
     }
 }
+
 
 //delete car by id
 const DeleteCar = async (req, res) => {
@@ -113,6 +111,7 @@ const UpdateCar = async (req, res) => {
         });
     }
 }
+
 
 module.exports = {
     CreateCar,

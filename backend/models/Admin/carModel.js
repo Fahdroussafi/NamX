@@ -6,14 +6,13 @@ const carSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        color: {
-            type: String,
-            required: true,
+        color_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "colors",
         },
-        car_image: {
-            type: String,
-            required: true,
-            default: "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png",
+        image_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "images",
         },
         type_id: {
             type: mongoose.Schema.Types.ObjectId,

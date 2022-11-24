@@ -17,6 +17,10 @@ app.use("/api/car", require("./routes/admin/carRoutes"));
 app.use("/api/type", require("./routes/admin/typeRoutes"));
 app.use("/api/details", require("./routes/admin/detailsRoutes"));
 
+app.use("/api/color", require("./routes/admin/colorRoutes"));
+app.use("/api/image", require("./routes/admin/imageRoutes"));
+
+
 // listen to port
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
