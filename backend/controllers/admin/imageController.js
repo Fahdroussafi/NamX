@@ -51,8 +51,58 @@ const GetAllImages = async (req, res) => {
         });
     }
 }
+// delete image by id
+const DeleteImage = async (req, res) => {
+    try {
+        const image = await Image.findById(req.params.image_id);
+        if (!image) {
+            return res.status(400).json({
+                message: "Image not found"
+            });
+        }
+        await image.remove();
+        res.status(200).send({
+            success: true,
+            message: "Image deleted successfully",
+        });
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Internal server error",
+            errorMessage: error.message,
+        });
+    }
+}
+// update image by id
+const UpdateImage = async (req, res) => {
+    try {
+        const images = await Image.findById(req.params.image_id);
+        if (!images) {
+            return res.status(400).json({
+                message: "Image not found"
+            });
+        }
+        const {name_image, image} = req.body;
+        images.name_image = name_image;
+        images.image = image;
+        await images.save();
+        res.status(200).send({
+            success: true,
+            message: "Image updated successfully",
+            data: images,
+        });
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Internal server error",
+            errorMessage: error.message,
+        });
+    }
+}
 
 module.exports = {
     CreateImage,
-    GetAllImages
+    GetAllImages,
+    DeleteImage,
+    UpdateImage,
 };

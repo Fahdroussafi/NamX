@@ -59,8 +59,61 @@ const GetAllCars = async (req, res) => {
         });
     }
 }
+//delete car by id
+const DeleteCar = async (req, res) => {
+    try {
+        const car = await Car.findById(req.params.car_id);
+        if (!car) {
+            return res.status(400).json({
+                message: "Car not found"
+            });
+        }
+        await car.remove();
+        res.status(200).send({
+            success: true,
+            message: "Car deleted successfully",
+            data: car,
+        });
+    } catch (error) {
+        res.send({
+            message: error.message,
+            status: false,
+            data: null,
+        });
+    }
+}
+
+//update car by id
+const UpdateCar = async (req, res) => {
+    try {
+        const car = await Car.findById(req.params.car_id);
+        if (!car) {
+            return res.status(400).json({
+                message: "Car not found"
+            });
+        }
+        const {name_car, color} = req.body;
+        car.name_car = name_car;
+        car.color = color;
+        await car.save();
+        res.status(200).send({
+            success: true,
+            message: "Car updated successfully",
+            data: car,
+        });
+    } catch (error) {
+        res.send({
+            message: error.message,
+            status: false,
+            data: null,
+        });
+    }
+}
+
 
 module.exports = {
     CreateCar,
     GetAllCars,
+    DeleteCar,
+    UpdateCar,
 };
