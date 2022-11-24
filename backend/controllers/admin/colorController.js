@@ -50,8 +50,56 @@ const GetAllColors = async (req, res) => {
         });
     }
 }
+// delete color by id
+const DeleteColor = async (req, res) => {
+    try {
+        const color = await Color.findById(req.params.color_id);
+        if (!color) {
+            return res.status(400).json({
+                message: "Color not found"
+            });
+        }
+        await color.remove();
+        res.status(200).json({
+            message: "Color deleted successfully"
+        });
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Internal server error",
+            errorMessage: error.message,
+        });
+    }
+}
+// update color by id
+const UpdateColor = async (req, res) => {
+    try {
+        const color = await Color.findById(req.params.color_id);
+        if (!color) {
+            return res.status(400).json({
+                message: "Color not found"
+            });
+        }
+        const {color_name, color_code} = req.body;
+        color.color_name = color_name;
+        color.color_code = color_code;
+        await color.save();
+        res.status(200).json({
+            message: "Color updated successfully",
+            data: color
+        });
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Internal server error",
+            errorMessage: error.message,
+        });
+    }
+}
 
 module.exports = {
     CreateColor,
-    GetAllColors
+    GetAllColors,
+    DeleteColor,
+    UpdateColor
 };
