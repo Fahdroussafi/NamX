@@ -15,6 +15,7 @@ app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/admin", require("./routes/admin/adminRoutes"));
 app.use("/api/car", require("./routes/admin/carRoutes"));
 app.use("/api/type", require("./routes/admin/typeRoutes"));
+app.use("/api/details", require("./routes/admin/detailsRoutes"));
 
 // listen to port
 app.listen(port, () => {
