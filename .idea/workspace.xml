@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72bb42b1-9eb1-44b5-9e61-2346489d9a92" name="Changes" comment="add admin Routes">
-      <change afterPath="$PROJECT_DIR$/backend/controllers/admin/adminController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/controllers/admin/carController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/controllers/admin/typeController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/Admin/carModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/Admin/typeModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/admin/adminModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/admin/adminRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/admin/carRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/admin/typeRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/NamX.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NamX.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/dbConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/dbConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/admin/carController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/admin/carController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/admin/detailsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/admin/detailsController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/admin/carRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/admin/carRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/admin/detailsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/admin/detailsRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +20,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Hqt45Qe1r1KRMZpj9q1Lc4AL35" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
