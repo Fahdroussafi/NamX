@@ -46,8 +46,25 @@ const CreateCar = async (req, res) => {
         });
     }
 }
+const GetAllCars = async (req, res) => {
+    try {
+        const cars = await Car.find();
+        res.status(200).send({
+            success: true,
+            message: "All cars fetched successfully",
+            data: cars,
+        });
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Internal server error",
+            errorMessage: error.message,
+        });
+    }
+}
 
 module.exports = {
     CreateCar,
+    GetAllCars,
 };
 
