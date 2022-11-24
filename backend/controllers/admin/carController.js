@@ -63,7 +63,82 @@ const GetAllCars = async (req, res) => {
     }
 }
 
+
+
+//update car by id
+const UpdateCar = async (req, res) => {
+    try {
+        const {name_car, color} = req.body;
+        const car = await Car.findById(req.params.car_id);
+        if (!car) {
+            return res.status(400).json({
+                message: "Car not found"
+            });
+        }
+        // const type = await Type.findById(req.params.type_id);
+        // if (!type) {
+        //     return res.status(400).json({
+        //         message: "Type not found"
+        //     });
+        // }
+        const updateCar = await Car.findByIdAndUpdate
+        (
+            req.params.car_id,
+            {
+                name_car,
+                color,
+                // type_id: req.params.type_id,
+            },
+            {
+                new: true,
+            }
+        );
+        res.status(200).send({
+            success: true,
+            message: "Car updated successfully",
+
+            data: updateCar,
+        });
+    } catch (error) {
+        res.send({
+            message: error.message,
+
+            status: false,
+            data: null,
+        });
+    }
+}
+
+// const UpdateCar = async (req, res) => {
+//     try {
+//         const car = await Car.findById(req.params.car_id);
+//         if (!car) {
+//             return res.status(400).json({
+//                 message: "Car not found"
+//             });
+//         }
+//         const {name_car, color} = req.body;
+//         car.name_car = name_car;
+//         car.color = color;
+//         await car.save();
+//         res.status(200).send({
+//             success: true,
+//             message: "Car updated successfully",
+//             data: car,
+//         });
+//     } catch (error) {
+//         res.send({
+//             message: error.message,
+//             status: false,
+//             data: null,
+//         });
+//     }
+// }
+
+
+
 module.exports = {
     CreateCar,
     GetAllCars,
+    UpdateCar,
 };
