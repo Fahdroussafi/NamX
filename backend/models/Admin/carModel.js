@@ -6,14 +6,6 @@ const carSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        color_id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "colors",
-        },
-        image_id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "images",
-        },
         type_id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "types",
