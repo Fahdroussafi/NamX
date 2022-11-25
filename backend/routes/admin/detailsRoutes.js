@@ -6,9 +6,10 @@ const {
     GetAllDetails,
     DeleteDetails,
 } = require("../../controllers/admin/detailsController");
+const adminMiddleware = require("../../middlewares/adminMiddleware");
 
-router.post("/create-details", CreateDetails);
-router.get("/get-all-details", GetAllDetails);
-router.delete("/delete-details/:details_id", DeleteDetails);
+router.post("/create-details",adminMiddleware, CreateDetails);
+router.get("/get-all-details", adminMiddleware,GetAllDetails);
+router.delete("/delete-details/:details_id", adminMiddleware,DeleteDetails);
 
 module.exports = router;
