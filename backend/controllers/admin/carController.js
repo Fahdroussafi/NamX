@@ -59,6 +59,11 @@ const GetAllCars = async (req, res) => {
         });
     }
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 0c8acd4eeae6810040c80aca069765bdb6944be3
 //delete car by id
 const DeleteCar = async (req, res) => {
     try {
@@ -116,4 +121,9 @@ module.exports = {
     GetAllCars,
     DeleteCar,
     UpdateCar,
+<<<<<<< HEAD
 };
+=======
+};
+
+>>>>>>> 0c8acd4eeae6810040c80aca069765bdb6944be3

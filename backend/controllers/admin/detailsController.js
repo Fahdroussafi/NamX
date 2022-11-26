@@ -1,6 +1,10 @@
 const Details = require("../../models/admin/detailsModel");
 const Type = require("../../models/admin/typeModel");
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0c8acd4eeae6810040c80aca069765bdb6944be3
 // create new details
 const CreateDetails = async (req, res) => {
     try {

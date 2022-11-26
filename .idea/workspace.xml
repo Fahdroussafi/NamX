@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72bb42b1-9eb1-44b5-9e61-2346489d9a92" name="Changes" comment="add router.delete details">
-      <change afterPath="$PROJECT_DIR$/backend/middlewares/authMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/admin/adminController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/admin/adminController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/middlewares/authMiddlewares.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/middlewares/adminMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/admin/carRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/admin/carRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/admin/colorRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/admin/colorRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/admin/detailsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/admin/detailsRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/admin/imageRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/admin/imageRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/admin/typeRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/admin/typeRoutes.js" afterDir="false" />
-    </list>
+    <list default="true" id="72bb42b1-9eb1-44b5-9e61-2346489d9a92" name="Changes" comment="add router.delete details" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +53,7 @@
       <workItem from="1669194494108" duration="43000" />
       <workItem from="1669194541384" duration="1721000" />
       <workItem from="1669305719734" duration="166000" />
-      <workItem from="1669363784639" duration="5255000" />
+      <workItem from="1669363784639" duration="5961000" />
     </task>
     <task id="LOCAL-00001" summary="create adminController.js">
       <created>1669128247335</created>

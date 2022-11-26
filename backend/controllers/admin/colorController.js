@@ -50,7 +50,10 @@ const GetAllColors = async (req, res) => {
         });
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0c8acd4eeae6810040c80aca069765bdb6944be3
 // delete color by id
 const DeleteColor = async (req, res) => {
     try {
