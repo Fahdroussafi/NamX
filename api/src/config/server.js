@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 export const app = express()
 
 const { PORT, MONGO_USER, MONGO_PASS, MONGO_DBNAME } = process.env
-const MONGO_URI = `mongodb+srv://imane:imane@cluster0.ywwddks.mongodb.net/?retryWrites=true&w=majority`
+const MONGO_URI = `mongodb+srv://${MONGO_USER}:${MONGO_PASS}@cluster0.xde6xue.mongodb.net/${MONGO_DBNAME}`
 
 export const startServer = () => mongoose
     .connect(MONGO_URI)
