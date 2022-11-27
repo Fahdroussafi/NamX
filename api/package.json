@@ -1,12 +1,14 @@
 {
-  "name": "myfleet",
-  "type": "module",
+  "name": "namx",
+  "main": "src/app.js",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/config/server.js",
   "scripts": {
-    "start": "nodemon ./src/config/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon --exec babel-node src/app.js",
+    "start": "node ./build/app.js",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel src -d ./build -s",
+    "build": "yarn clean && yarn build-babel"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +21,7 @@
     "@babel/preset-env": "^7.16.5",
     "@babel/runtime": "^7.16.5",
     "axios": "^0.24.0",
-    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
