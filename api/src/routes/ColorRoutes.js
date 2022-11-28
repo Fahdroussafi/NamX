@@ -9,7 +9,7 @@ import {
 const router = Router();
 const { checkToken } = require('../middleware/adminMiddleware');
 
-// router.get('/get-all-colors', checkToken, getColors);
+router.get('/get-all-colors', checkToken, getColors);
 router.post('/create-color', checkToken, createColor);
 // router.put('/update-color/:color_id', checkToken, updateColor);
 // router.delete('/delete-color/:color_id', checkToken, deleteColor);
