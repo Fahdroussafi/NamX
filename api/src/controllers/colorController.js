@@ -30,3 +30,20 @@ export const createColor = async (req, res) => {
     });
   }
 };
+
+export const getColors = async (req, res) => {
+  try {
+    const colors = await ColorModel.find();
+    res.status(200).send({
+      message: 'Colors fetched successfully',
+      success: true,
+      data: colors,
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+      success: false,
+      data: null,
+    });
+  }
+};
