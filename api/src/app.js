@@ -4,7 +4,7 @@ import cors from 'cors';
 import ejs from 'ejs';
 import { app, startServer } from './config';
 import { errorHandler, notFound } from './middleware';
-import { CarRoutes, UsersRoutes, AdminRoutes } from './routes';
+import { CarRoutes, UsersRoutes, AdminRoutes, ReservationRoutes } from './routes';
 import path from 'path';
 
 export const init = () => {
@@ -26,6 +26,7 @@ export const init = () => {
   app.use('/api/car', CarRoutes);
   app.use('/api/auth', UsersRoutes);
   app.use('/api/admin', AdminRoutes);
+  app.use('/api/reservation', ReservationRoutes);
   app.get('/', (req, res) => {
     console.log('health check');
     res.json({
