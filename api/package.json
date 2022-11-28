@@ -1,0 +1,41 @@
+{
+  "name": "namx",
+  "main": "src/app.js",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/app.js",
+    "start": "node ./build/app.js",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel src -d ./build -s",
+    "build": "yarn clean && yarn build-babel"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/node": "^7.16.5",
+    "@babel/plugin-transform-runtime": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/runtime": "^7.16.5",
+    "axios": "^0.24.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^6.1.3",
+    "mongoose-unique-validator": "^3.0.0",
+    "nodemailer": "^6.7.2",
+    "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1"
+  }
+}
