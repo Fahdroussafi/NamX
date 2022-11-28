@@ -1,19 +1,12 @@
 let streamifier = require('streamifier');
 import fs from 'fs';
-import { getApp } from 'firebase/app';
 import { v2 as cloudinary } from 'cloudinary';
 
 cloudinary.config({
  //config cloudflare
 });
 
-import {
-  getStorage,
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  deleteObject,
-} from 'firebase/storage';
+
 
 // export const upload = async (file) => {
 //   const firebaseApp = getApp();
@@ -66,24 +59,5 @@ export const multiUpload = async (files) => {
     } catch (err) {
       console.log(err);
     }
-  }
-};
-
-export const deleteImage = async (url) => {
-  const storage = getStorage();
-
-  if (url) {
-    const desertRef = ref(storage, url);
-    if (desertRef) {
-      deleteObject(desertRef)
-        .then(() => {
-          console.log('File deleted successfully');
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  } else {
-    console.log('File not found');
   }
 };

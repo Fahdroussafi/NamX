@@ -1,7 +1,9 @@
 import 'dotenv/config';
-import { json, static as urlencoded } from 'express';
+import { json, static as staticPath, urlencoded } from 'express';
+
 import cors from 'cors';
 import ejs from 'ejs';
+import path from 'path';
 import { app, startServer } from './config';
 import { errorHandler, notFound } from './middleware';
 import {
@@ -10,7 +12,9 @@ import {
 
 export const init = () => {
   //global middlewares
+  app.use('/media', staticPath(path.join(__dirname, 'media')));
 
+  app.set('views', path.join(__dirname, '../views'));
   app.engine('ejs', ejs.renderFile);
   app.set('view engine', 'ejs');
 
