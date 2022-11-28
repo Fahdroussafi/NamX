@@ -5,8 +5,7 @@ import ejs from 'ejs';
 import path from 'path';
 import { app, startServer } from './config';
 import { errorHandler, notFound } from './middleware';
-import { CarRoutes, UsersRoutes, AdminRoutes } from './routes';
-import path from 'path';
+import { CarRoutes, UsersRoutes, AdminRoutes, ImageRoutes } from './routes';
 
 export const init = () => {
   //global middlewares
@@ -26,6 +25,7 @@ export const init = () => {
 
   //routes
   app.use('/api/car', CarRoutes);
+  app.use('/api/image', ImageRoutes);
   app.use('/api/auth', UsersRoutes);
   app.use('/api/admin', AdminRoutes);
   app.get('/', (req, res) => {
