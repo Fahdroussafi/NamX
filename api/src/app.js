@@ -11,6 +11,7 @@ import {
   ColorRoutes,
   DetailsRoutes,
   ReservationRoutes,
+  ImageRoutes,
 } from './routes';
 
 export const init = () => {
