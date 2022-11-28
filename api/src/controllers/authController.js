@@ -4,24 +4,6 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 dotenv.config();
 
-// get all users
-// export const getUsers = async (req, res) => {
-//   try {
-//     const users = await UserModel.find();
-//     res.status(200).send({
-//       success: true,
-//       message: 'All users fetched successfully',
-//       data: users,
-//     });
-//   } catch (error) {
-//     res.status(500).send({
-//       success: false,
-//       message: 'Internal server error',
-//       errorMessage: error.message,
-//     });
-//   }
-// };
-
 // login user
 export const Login = async (req, res) => {
   try {

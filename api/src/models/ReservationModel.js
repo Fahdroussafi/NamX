@@ -18,7 +18,7 @@ const ReservationSchema = new Schema(
       default: Date.now,
     },
     status: {
-      type: Boolean,
+      type: String,
       default: 'pending',
     },
     quantity: {
