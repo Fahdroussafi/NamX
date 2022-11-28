@@ -1,15 +1,14 @@
 import { model, Schema } from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
 
-const CarSchema = new Schema(
+const ImageSchema = new Schema(
   {
-    name_car: {
+    name_image: {
       type: String,
       required: true,
     },
-    type_id: {
-      type: Schema.Types.ObjectId,
-      ref: 'types',
+    image: {
+      type: Array,
       required: true,
     },
   },
@@ -18,5 +17,5 @@ const CarSchema = new Schema(
   }
 );
 
-CarSchema.plugin(uniqueValidator);
-export const CarModel = model('cars', CarSchema);
+ImageSchema.plugin(uniqueValidator);
+export const ImageModel = model('images', ImageSchema);

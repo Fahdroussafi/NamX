@@ -1,15 +1,14 @@
 import { model, Schema } from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
 
-const CarSchema = new Schema(
+const ColorSchema = new Schema(
   {
-    name_car: {
+    color_name: {
       type: String,
       required: true,
     },
-    type_id: {
-      type: Schema.Types.ObjectId,
-      ref: 'types',
+    color_code: {
+      type: String,
       required: true,
     },
   },
@@ -18,5 +17,5 @@ const CarSchema = new Schema(
   }
 );
 
-CarSchema.plugin(uniqueValidator);
-export const CarModel = model('cars', CarSchema);
+ColorSchema.plugin(uniqueValidator);
+export const ColorModel = model('colors', ColorSchema);

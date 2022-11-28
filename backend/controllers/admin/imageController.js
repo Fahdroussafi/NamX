@@ -89,7 +89,7 @@ const UpdateImage = async (req, res) => {
         res.status(200).send({
             success: true,
             message: "Image updated successfully",
-            data: imagesupdat,
+            data: images,
         });
     } catch (error) {
         res.status(500).send({

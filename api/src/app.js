@@ -1,26 +1,22 @@
 import 'dotenv/config';
 import { json, static as staticPath, urlencoded } from 'express';
-
 import cors from 'cors';
 import ejs from 'ejs';
 import path from 'path';
 import { app, startServer } from './config';
 import { errorHandler, notFound } from './middleware';
-import {
-  CarRoutes,
-} from './routes';
+import { CarRoutes, UsersRoutes, AdminRoutes } from './routes';
+import path from 'path';
 
 export const init = () => {
   //global middlewares
-  app.use('/media', staticPath(path.join(__dirname, 'media')));
+  app.set('views', path.join(__dirname, '../views'));
 
   app.set('views', path.join(__dirname, '../views'));
   app.engine('ejs', ejs.renderFile);
   app.set('view engine', 'ejs');
 
- 
-  app.use(cors({origin : '*'}));
-  // app.use(morgan('tiny'));
+  app.use(cors({ origin: '*' }));
   app.use(json());
   app.use(urlencoded({ extended: true }));
 
@@ -29,13 +25,15 @@ export const init = () => {
   });
 
   //routes
-  app.use('/car', CarRoutes);
-  app.get('/',(req, res)=>{
-    console.log('health check')
+  app.use('/api/car', CarRoutes);
+  app.use('/api/auth', UsersRoutes);
+  app.use('/api/admin', AdminRoutes);
+  app.get('/', (req, res) => {
+    console.log('health check');
     res.json({
-      healthCheck:'system is ready'
-    })
-  })
+      healthCheck: 'system is ready',
+    });
+  });
 
   // 404
   app.use(notFound);
