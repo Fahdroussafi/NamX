@@ -14,7 +14,7 @@ export const getTypes = async (req, res) => {
             message: 'All types fetched successfully',
             data: types,
             // show the details_name and image and color_code
-            data: types.map((type) => {
+            datas: types.map((type) => {
                 return {
                     type_name: type.type_name,
                     config: {
