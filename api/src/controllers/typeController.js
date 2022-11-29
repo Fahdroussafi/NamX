@@ -12,7 +12,7 @@ export const getTypes = async (req, res) => {
         res.status(200).send({
             success: true,
             message: 'All types fetched successfully',
-            // data: types,
+            data: types,
             // show the details_name and image and color_code
             data: types.map((type) => {
                 return {
