@@ -1,32 +1,11 @@
 import { ReservationModel } from '../models';
 import { CarModel } from '../models';
 import { UserModel } from '../models';
-import nodemailer from 'nodemailer';
-
-// nodemailer transporter
-let transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.PASSWORD,
-  },
-});
-
-// transporter verification
-transporter.verify((error, success) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Ready for messages');
-    console.log(success);
-  }
-});
-
+import { transporter } from '../middleware';
 
 // create new reservation by user_id and car_id
 export const createReservation = async (req, res) => {
   try {
-    // const { user_id, car_id, quantity } = req.body;
     const user = await UserModel.findById(req.params.user_id);
     if (!user) {
       return res.status(400).send({
