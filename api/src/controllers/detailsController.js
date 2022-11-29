@@ -20,11 +20,11 @@ export const getDetails = async (req, res) => {
 export const createDetails = async (req, res) => {
   try {
     const existingDetails = await DetailsModel.findOne({
-      details_name: req.body.details_name,
+      details_description: req.body.details_description,
     });
     if (existingDetails) {
       return res.status(400).send({
-        message: 'Details already exists',
+        message: 'Details name already exists',
         success: false,
         data: null,
       });
