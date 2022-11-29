@@ -5,3 +5,4 @@ export { ColorRoutes } from './ColorRoutes';
 export { ImageRoutes } from './ImageRoutes';
 export { DetailsRoutes } from './DetailsRoutes';
 export { ReservationRoutes } from './ReservationRoutes';
+export { TypeRoutes } from './TypeRoutes';
