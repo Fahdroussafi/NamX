@@ -26,16 +26,16 @@ const TypeSchema = new Schema(
       type: Object,
       required: true,
       details: {
-        type: Schema.Types.ObjectId || Schema.Types.String,
+        type: [Schema.Types.ObjectId],
         ref: 'details',
         required: true,
         image: {
-          type: Schema.Types.ObjectId || Schema.Types.String,
+          type: [Schema.Types.ObjectId],
           ref: 'images',
           required: true,
         },
         color: {
-          type: Schema.Types.ObjectId || Schema.Types.String,
+          type: [Schema.Types.ObjectId],
           ref: 'colors',
           required: true,
         },
