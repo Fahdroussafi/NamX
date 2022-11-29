@@ -5,42 +5,46 @@ import { ColorModel } from '../models';
 
 export const getTypes = async (req, res) => {
   try {
-    const types = await TypeModel.find();
-    const details = await DetailsModel.find();
-    const images = await ImageModel.find();
-    const colors = await ColorModel.find();
+    const types = await TypeModel.find()
+      .populate('details')
+      .populate('images')
+      .populate('colors');
+
+    // const details = await DetailsModel.find();
+    // const images = await ImageModel.find();
+    // const colors = await ColorModel.find();
     res.status(200).send({
       success: true,
       message: 'All types fetched successfully',
-      // data: types,
+      data: types,
       // show the details_name and image and color_code
-      data: types.map((type) => {
-        return {
-          type_name: type.type_name,
-          config: {
-            details: details.map((detail) => {
-              return {
-                details_name: detail.details_name,
-                details_description: detail.details_description,
-              };
-            }),
+      // data: types.map((type) => {
+      //   return {
+      //     type_name: type.type_name,
+      //     config: {
+      //       details: details.map((detail) => {
+      //         return {
+      //           details_name: detail.details_name,
+      //           details_description: detail.details_description,
+      //         };
+      //       }),
 
-            images: images.map((image) => {
-              return {
-                image_name: image.name_image,
-                image: image.image,
-              };
-            }),
+      //       images: images.map((image) => {
+      //         return {
+      //           image_name: image.name_image,
+      //           image: image.image,
+      //         };
+      //       }),
 
-            colors: colors.map((color) => {
-              return {
-                color_name: color.color_name,
-                color_code: color.color_code,
-              };
-            }),
-          },
-        };
-      }),
+      //       colors: colors.map((color) => {
+      //         return {
+      //           color_name: color.color_name,
+      //           color_code: color.color_code,
+      //         };
+      //       }),
+      //     },
+      //   };
+      // }),
     });
   } catch (error) {
     res.status(500).send({
