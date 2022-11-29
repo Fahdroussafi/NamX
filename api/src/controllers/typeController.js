@@ -6,10 +6,41 @@ import { ColorModel } from '../models';
 export const getTypes = async (req, res) => {
   try {
     const types = await TypeModel.find();
+    const details = await DetailsModel.find();
+    const images = await ImageModel.find();
+    const colors = await ColorModel.find();
     res.status(200).send({
       success: true,
       message: 'All types fetched successfully',
-      data: types,
+      // data: types,
+      // show the details_name and image and color_code
+      data: types.map((type) => {
+        return {
+          type_name: type.type_name,
+          config: {
+            details: details.map((detail) => {
+              return {
+                details_name: detail.details_name,
+                details_description: detail.details_description,
+              };
+            }),
+
+            images: images.map((image) => {
+              return {
+                image_name: image.name_image,
+                image: image.image,
+              };
+            }),
+
+            colors: colors.map((color) => {
+              return {
+                color_name: color.color_name,
+                color_code: color.color_code,
+              };
+            }),
+          },
+        };
+      }),
     });
   } catch (error) {
     res.status(500).send({
@@ -23,7 +54,13 @@ export const getTypes = async (req, res) => {
 export const createType = async (req, res) => {
   try {
     const { type_name, config } = req.body;
-    // check if the ids in config are in the database and if not, return an error
+    const existingType = await TypeModel.findOne({ type_name });
+    if (existingType) {
+      return res.status(409).send({
+        success: false,
+        message: 'Type name already exists',
+      });
+    }
 
     for (let i = 0; i < config.details.length; i++) {
       const detail = await DetailsModel.findById(config.details[i]);
@@ -56,21 +93,10 @@ export const createType = async (req, res) => {
       type_name,
       config,
     });
-    // if those ids are not the same as the ones in the database, return an error
-
     res.status(201).send({
       success: true,
       message: 'Type created successfully',
       data: type,
-      // show the name of the detail, image and color ids
-      datas: {
-        type_name: type.type_name,
-        config: {
-          details: type.config.details_name,
-          image: type.config.image,
-          color: type.config.color_name,
-        },
-      },
     });
   } catch (error) {
     res.status(500).send({
