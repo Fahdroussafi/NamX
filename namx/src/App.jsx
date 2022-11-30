@@ -1,32 +1,47 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
+import React, { lazy, Suspense } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Loader from "./components/Loader";
+import PublicRoute from "./routes/PublicRoute";
+// import ProtectedRoute from "./components/ProtectedRoute";
+
+const Index = lazy(() => import("./pages/Index"));
+const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
+const LoginAdmin = lazy(() => import("./pages/admin/LoginAdmin"));
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  // const { loading } = useSelector((state) => state.alerts);
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+        <Suspense>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <PublicRoute>
+                  <Index />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/admin/dashboard"
+              element={
+                <PublicRoute>
+                  <Dashboard />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/admin/login"
+              element={
+                <PublicRoute>
+                  <LoginAdmin />
+                </PublicRoute>
+              }
+            />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
     </div>
   );
 }
