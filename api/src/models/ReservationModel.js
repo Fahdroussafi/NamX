@@ -3,12 +3,12 @@ import uniqueValidator from 'mongoose-unique-validator';
 
 const ReservationSchema = new Schema(
   {
-    user_id: {
+    user: {
       type: Schema.Types.ObjectId,
       ref: 'users',
       required: true,
     },
-    car_id: {
+    car: {
       type: Schema.Types.ObjectId,
       ref: 'cars',
       required: true,
