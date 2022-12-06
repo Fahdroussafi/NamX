@@ -1,7 +1,5 @@
 # React-Dashboard
 
-![licence](https://img.shields.io/badge/licence-MIT-blue)
-
 React Dashboard is an admin template dashboard based on React.
 
 ![React-Dashboard](https://user-images.githubusercontent.com/32510139/181506432-dd67d4cc-31ae-40d6-8415-29b111e247b5.gif)
@@ -14,8 +12,6 @@ React Dashboard is an admin template dashboard based on React.
 - [Run Locally](#run-locally)
 - [Deployment](#deployment)
 - [File Structure](#file-structure)
-- [Author](#author)
-- [License](#license)
 
 ## Tech Stack
 
@@ -98,11 +94,3 @@ React-Dashboard
     └── utils
         └── table-pagination.js
 ```
-
-## Author
-
-- [@Fahd](https://github.com/Fahdroussafi)
-
-## License
-
-[MIT](https://github.com/fahdroussafi/React-Dashboard/blob/main/LICENSE)
