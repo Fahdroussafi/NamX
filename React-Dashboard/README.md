@@ -23,11 +23,6 @@ React Dashboard is an admin template dashboard based on React.
 
 ## Quick start
 
-Clone the repo
-
-```bash
-  git clone https://github.com/blaiti/React-Dashboard
-```
 
 Install React-Dashboard with npm
 
@@ -106,8 +101,8 @@ React-Dashboard
 
 ## Author
 
-- [@blaiti](https://github.com/blaiti)
+- [@Fahd](https://github.com/Fahdroussafi)
 
 ## License
 
-[MIT](https://github.com/blaiti/React-Dashboard/blob/main/LICENSE)
+[MIT](https://github.com/fahdroussafi/React-Dashboard/blob/main/LICENSE)
