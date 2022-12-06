@@ -4,7 +4,6 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 dotenv.config();
 
-
 // login admin
 export const loginAdmin = async (req, res) => {
   try {
@@ -81,6 +80,24 @@ export const registerAdmin = async (req, res) => {
     res.send({
       message: error.message,
       status: false,
+      data: null,
+    });
+  }
+};
+
+// get admin by id
+export const getAdminById = async (req, res) => {
+  try {
+    const admin = await AdminModel.findById(req.params.admin_id);
+    res.status(200).send({
+      message: 'Admin fetched successfully',
+      success: true,
+      data: admin,
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+      success: false,
       data: null,
     });
   }
