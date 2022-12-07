@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineLogin } from "react-icons/ai";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -14,16 +15,26 @@ const Navbar = () => {
       <div class="fixed w-full">
         <div className="flex justify-between items-center h-full backdrop-blur-sm">
           <div className="flex mt-8 justify-center w-screen">
+            <Link
+              to="/"
+              className="flex items-center justify-center text-white text-2xl font-bold"
+            >
             <img className="max-w-[250px]" src={logo} alt="/" />
+            </Link>
           </div>
           <div className="hidden md:flex text-white mr-5">
           <ul className="flex text-white items-center">
               <li>Store</li>
               <li>Contact</li>
             </ul>
+            <Link
+              to="/login"
+              className="flex items-center justify-center text-white text-2xl font-bold"
+              >
             <button className="ml-4">
               <AiOutlineLogin className="text-2xl" size={20} />
             </button>
+            </Link>
           </div>
           {/* Hamburger menu */}
           {/* <div onClick={handleNav} className="block md:hidden">
