@@ -100,6 +100,7 @@ function Details() {
         dataSource={details}
         columns={columns}
         pagination={{ pageSize: 5 }}
+        loading={details.length === 0}
       />
       {showDetailsForm && (
         <DetailsForm

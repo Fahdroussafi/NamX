@@ -93,7 +93,12 @@ function Cars() {
           <span className="absolute inset-0 border-2 border-blue-600 rounded-full"></span>
         </button>
       </div>
-      <Table dataSource={cars} columns={columns} pagination={{ pageSize: 7 }} />
+      <Table
+        dataSource={cars}
+        columns={columns}
+        pagination={{ pageSize: 5 }}
+        loading={cars.length === 0}
+      />
       {showCarForm && (
         <CarForm
           showCarForm={showCarForm}
