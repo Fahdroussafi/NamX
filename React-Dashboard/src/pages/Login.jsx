@@ -7,15 +7,14 @@ function login() {
   // const navigate = useNavigate();
   const onFinish = async (values) => {
     try {
-      const response = await axios.post(
-        "/api/admin/login-admin",
-        values
-      );
+      const date = new Date();
+      const response = await axios.post("/api/admin/login-admin", values);
       if (response.data.success) {
         message.success(response.data.message);
         console.log(response.data);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("admin_id", response.data.admin._id);
+        localStorage.setItem("token_date", date.getTime());
         // navigate("/dashboard");
         window.location.href = "/";
       } else {
