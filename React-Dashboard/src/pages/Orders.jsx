@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { message, Table } from "antd";
 import DoneIcon from "../assets/icons/done.svg";
@@ -37,7 +37,7 @@ function Orders() {
     {
       title: "Order ID",
       dataIndex: "_id",
-      key: "order_id",
+      key: "_id",
     },
 
     {
@@ -48,18 +48,9 @@ function Orders() {
 
     {
       title: "Order Time",
-      dataIndex: "order_time",
-      key: "order_time",
-      render: (order_time) => (
-        <div className="flex flex-col gap-2">
-          <span className="text-sm text-gray-500">
-            {moment(order_time).format("DD MMM YYYY")}
-          </span>
-          <span className="text-sm text-gray-500">
-            {moment(order_time).format("hh:mm A")}
-          </span>
-        </div>
-      ),
+      dataIndex: "time",
+      key: "time",
+      render: (time) => moment(time).format("DD/MM/YYYY"),
     },
 
     {
@@ -108,6 +99,7 @@ function Orders() {
         dataSource={orders}
         columns={columns}
         pagination={{ pageSize: 5 }}
+        loading={orders.length === 0}
       />
     </div>
   );
