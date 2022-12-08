@@ -1,7 +1,11 @@
 import DashboardIcon from "../assets/icons/dashboard.svg";
-import ShippingIcon from "../assets/icons/shipping.svg";
 import ProductIcon from "../assets/icons/product.svg";
 import UserIcon from "../assets/icons/user.svg";
+import CarIcon from "../assets/icons/car.svg";
+import ImageIcon from "../assets/icons/image.svg";
+import DetailsIcon from "../assets/icons/details.svg";
+import TypeIcon from "../assets/icons/type.svg";
+import ColorIcon from "../assets/icons/color.svg";
 
 const sidebar_menu = [
   {
@@ -18,39 +22,39 @@ const sidebar_menu = [
   },
   {
     id: 3,
-    icon: ShippingIcon,
+    icon: CarIcon,
     path: "/cars",
     title: "Cars",
   },
   {
     id: 4,
-    icon: UserIcon,
+    icon: TypeIcon,
     path: "/types",
     title: "Types",
   },
   {
     id: 5,
-    icon: UserIcon,
+    icon: DetailsIcon,
     path: "/details",
     title: "Details",
   },
   {
     id: 6,
-    icon: UserIcon,
+    icon: ColorIcon,
     path: "/colors",
     title: "Colors",
   },
   {
     id: 7,
-    icon: UserIcon,
+    icon: ImageIcon,
     path: "/images",
     title: "Images",
   },
   {
     id: 8,
     icon: UserIcon,
-    path: "/profile",
-    title: "My account",
+    path: "/users",
+    title: "Users",
   },
 ];
 
