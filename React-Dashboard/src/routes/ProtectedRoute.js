@@ -3,8 +3,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import SideBar from "../components/Sidebar";
 import sidebar_menu from "../constants/sidebar-menu";
+import moment from "moment";
 
 function ProtectedRoute({ children }) {
+  useEffect(() => {}, []);
   const admin_id = localStorage.getItem("admin_id");
   const navigate = useNavigate();
   const validateToken = useCallback(async () => {
@@ -22,24 +24,35 @@ function ProtectedRoute({ children }) {
       } else {
         localStorage.removeItem("admin_id");
         localStorage.removeItem("token");
-        // message.error(response.data.message);
-        // navigate("/login");
         window.location.href = "/login";
       }
     } catch (error) {
       localStorage.removeItem("admin_id");
       localStorage.removeItem("token");
-      // message.error(error.message);
       navigate("/login");
     }
   }, [navigate, admin_id]);
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      validateToken();
-    } else {
-      navigate("/login");
-    }
+    const checklogin = () => {
+      if (localStorage.getItem("token")) {
+        validateToken();
+      } else {
+        navigate("/login");
+      }
+    };
+    checklogin();
+    const comparetime = () => {
+      const time = localStorage.getItem("token_date");
+      const currenttime = new Date().getTime();
+      if (currenttime - time > 3600000) {
+        localStorage.removeItem("admin_id");
+        localStorage.removeItem("token");
+        localStorage.removeItem("time");
+        navigate("/login");
+      }
+    };
+    comparetime();
   }, [navigate, validateToken]);
 
   return (
