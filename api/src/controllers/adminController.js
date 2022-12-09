@@ -1,4 +1,5 @@
 import { AdminModel } from '../models';
+import { UserModel } from '../models';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
@@ -85,3 +86,21 @@ export const registerAdmin = async (req, res) => {
     });
   }
 };
+
+// get all users
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await UserModel.find();
+    res.send({
+      message: 'All users',
+      status: true,
+      data: users,
+    });
+  } catch (error) {
+    res.send({
+      message: error.message,
+      status: false,
+      data: null,
+    });
+  }
+}
