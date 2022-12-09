@@ -1,36 +1,28 @@
-import React from 'react';
+import React from "react";
 
-import heroVid from '../assets/video.mp4';
+import heroVid from "../assets/video.mp4";
 
 const Hero = () => {
   return (
-    
-    <div className='w-full h-[90vh]'>
-      
+    <div className="w-full h-screen">
       <video
-        className='object-cover h-full w-full absolute -z-10'
+        className="object-cover h-full w-full absolute -z-10"
         src={heroVid}
         autoPlay
         loop
         muted
       />
-      {/* <div className='w-full h-[90%] flex flex-col justify-center items-center text-white px-4 text-center'>
-        <h1>Decentralized</h1>
-        <h1 className='py-2'>
-          <span className='blue'>Trading</span> Protocol
-        </h1>
-        <p className='text-xl py-4'>
-          Guaranteed liquidity trading for millions of users and top Ethereum
-          applications.
+      <div className="w-full h-[90%] flex flex-col justify-center items-center text-white px-4 text-center">
+        <h1 className="text-6xl">NAMX HUV</h1>
+        <p className="text-xl py-4">
+          A HYDROGEN-POWERED SUV PARTIALLY FUELED BY REMOVABLE CAPSULES, PAVING{" "}
+          <br />
+          THE WAY FOR A NEW GENERATION OF HYDROGEN VEHICLES.
         </p>
-        <div>
-          <button className='m-2'>Use Defi</button>
-          <button className='m-2'>FAQ</button>
-        </div>
-      </div> */}
-      <div>
-        {/* <p className='text-center text-white text-2xl font-bold '>Total Volume Secured: $42,104,783,662.47</p> */}
       </div>
+      {/* <div className="h-24 w-1/3 bg-slate-50 flex ml-96">
+        <p className='text-center text-black flex justify-center items-center text-2xl font-bold '>Total Volume Secured: $42,104,783,662.47</p>
+      </div> */}
     </div>
   );
 };
