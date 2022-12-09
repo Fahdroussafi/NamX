@@ -19,19 +19,8 @@ export const getDetails = async (req, res) => {
 
 export const createDetails = async (req, res) => {
   try {
-    const existingDetails = await DetailsModel.findOne({
-      details_description: req.body.details_description,
-    });
-    if (existingDetails) {
-      return res.status(400).send({
-        message: 'Details name already exists',
-        success: false,
-        data: null,
-      });
-    }
     const newDetails = new DetailsModel({
-      details_name: req.body.details_name,
-      details_description: req.body.details_description,
+      details: req.body.details,
     });
     await newDetails.save();
     res.status(200).send({
