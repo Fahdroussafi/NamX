@@ -3,7 +3,11 @@ import uniqueValidator from 'mongoose-unique-validator';
 
 const UserSchema = new Schema(
   {
-    name: {
+    firstName: {
+      type: String,
+      required: true,
+    },
+    lastName: {
       type: String,
       required: true,
     },
@@ -19,16 +23,16 @@ const UserSchema = new Schema(
     address: {
       type: String,
     },
-    city: {
+    country: {
       type: String,
     },
     state: {
       type: String,
     },
-    zip: {
+    city: {
       type: String,
     },
-    country: {
+    zip: {
       type: String,
     },
   },
