@@ -16,3 +16,6 @@ export const startServer = () => mongoose
     .catch((err) => {
         console.error(err);
     });
+
+// mongoose strict mode
+mongoose.set('strictQuery', false)
