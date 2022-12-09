@@ -1,4 +1,5 @@
 import { AdminModel } from '../models';
+import { UserModel } from '../models';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
@@ -98,6 +99,23 @@ export const getAdminById = async (req, res) => {
     res.status(500).send({
       message: error.message,
       success: false,
+      data: null,
+    });
+  }
+};
+
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await UserModel.find();
+    res.status(200).send({
+      message: 'All users',
+      status: true,
+      data: users,
+    });
+  } catch (error) {
+    res.status(400).send({
+      message: error.message,
+      status: false,
       data: null,
     });
   }
