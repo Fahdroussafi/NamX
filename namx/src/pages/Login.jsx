@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import cover from "../assets/NAMX-03.jpg";
 import axios from "axios";
 import logo from "../assets/favicon-32x32.png";
+import Stack from "@mui/material/Stack";
+import IconButton from "@mui/material/IconButton";
+import Fingerprint from "@mui/icons-material/Fingerprint";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
   //login
@@ -24,6 +29,21 @@ function Login() {
       }
     });
   };
+
+  //Toast if input faild
+  const notify = () => toast("Please fill in all fields!",
+    {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    }
+  );
+
 
 
   return (
@@ -208,17 +228,18 @@ function Login() {
                   </div>
                 </div>
 
-                <div>
-                  <button
-                    type="submit"
-                    onClick={() => {
-                      login();
-                    }}
-                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
-                    Sign in
-                  </button>
-                </div>
+                <div className="px-4 py-3 text-right sm:px-6 flex justify-center mt-8 hover:text-indigo-600">
+                <button
+                  type="submit"
+                  onClick={() => {
+                    login();
+                  }}
+                >
+                  <Fingerprint/>
+
+                </button>
+                <ToastContainer />
+              </div>
               </form>
             </div>
           </div>
