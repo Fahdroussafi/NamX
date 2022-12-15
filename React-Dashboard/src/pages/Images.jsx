@@ -10,15 +10,17 @@ function Images() {
 
   const getImages = async () => {
     try {
-      const response = await axiosInstance.get("/api/image/uploads/:image", {});
+      const response = await axiosInstance.get("/api/image/get-images", {});
       if (response.data.success) {
-        console.log(response.data.data);
+        // console.log(response.data.data);
         const mappedData = response.data.data.map((images) => {
           return {
             ...images,
             key: images._id,
           };
         });
+
+        // setImages(response.data.data);
         setImages(mappedData);
       } else {
         message.error(response.data.message);
@@ -32,19 +34,15 @@ function Images() {
   const columns = [
     {
       title: "Image Name",
-      dataIndex: "name_image",
-      key: "name_image",
+      dataIndex: "name",
+      key: "name",
     },
 
     {
       title: "Images",
-      dataIndex: ["image"],
-      render: (image) => (
-        <img
-          src={`http://localhost:5000/api/image/${image}`}
-          alt="image"
-          style={{ width: "100px", height: "100px", objectFit: "cover" }}
-        />
+      dataIndex: "img",
+      render: (img) => (
+        <img src={img} alt="image_img" className="w-64 h-full" />
       ),
       key: "image",
     },
@@ -55,20 +53,26 @@ function Images() {
       render: (text, record) => (
         <div className="flex gap-2">
           <button
-            className="underline text-base text-green-500 cursor-pointer hover:text-green-700"
             onClick={() => {
-              // setSelectedCar(record);
+              // deleteColor(record._id);
             }}
+            className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md"
           >
-            View
-          </button>
-          <button
-            className="underline text-base text-red-500 cursor-pointer hover:text-red-700"
-            onClick={() => {
-              // CancelBooking();
-            }}
-          >
-            Cancel
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+              />
+            </svg>
+            Delete
           </button>
         </div>
       ),
@@ -106,11 +110,11 @@ function Images() {
       {showImagesForm && (
         <ImagesForm
           showImagesForm={showImagesForm}
-          setShowImagesForm={setShowImagesForm}
-          type={selectedImages ? "edit" : "add"}
-          selectedImages={selectedImages}
-          setSelectedImages={setSelectedImages}
-          getData={getImages}
+          // setShowImagesForm={setShowImagesForm}
+          // type={selectedImages ? "edit" : "add"}
+          // selectedImages={selectedImages}
+          // setSelectedImages={setSelectedImages}
+          // getData={getImages}
         />
       )}
     </div>
