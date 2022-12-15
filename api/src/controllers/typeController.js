@@ -55,3 +55,26 @@ export const createType = async (req, res) => {
     });
   }
 };
+export const getTypeById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const type = await TypeModel.findById(id);
+    if (!type) {
+      return res.status(404).send({
+        success: false,
+        message: 'Type not found',
+      });
+    }
+    res.status(200).send({
+      success: true,
+      message: 'Type fetched successfully',
+      data: type,
+    });
+  } catch (error) {
+    res.status(500).send({
+      success: false,
+      message: 'Internal server error',
+      errorMessage: error.message,
+    });
+  }
+};
