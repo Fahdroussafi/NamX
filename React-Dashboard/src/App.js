@@ -14,6 +14,8 @@ const Types = lazy(() => import("./pages/Types"));
 const Details = lazy(() => import("./pages/Details"));
 const Colors = lazy(() => import("./pages/Colors"));
 const Images = lazy(() => import("./pages/Images"));
+const Users = lazy(() => import("./pages/Users"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 const Login = lazy(() => import("./pages/Login"));
 
 function App() {
@@ -36,6 +38,15 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Images />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/users"
+              element={
+                <ProtectedRoute>
+                  <Users />
                 </ProtectedRoute>
               }
             />
@@ -85,7 +96,7 @@ function App() {
               }
             />
 
-            <Route path="*" element={<h1>404</h1>} />
+            <Route path="*" element={<NotFound />} />
 
             <Route
               path="/login"
