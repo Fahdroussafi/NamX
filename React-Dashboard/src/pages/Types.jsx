@@ -27,6 +27,22 @@ function Types() {
       console.log(error);
     }
   };
+  const getTypesById = async (id) => {
+    try {
+      const response = await axiosInstance.get(
+        `/api/type/get-type-by-id/${id}`,
+        {}
+      );
+      if (response.data.success) {
+        // setSelectedTypes(response.data.data);
+      } else {
+        message.error(response.data.message);
+      }
+    } catch (error) {
+      message.error("Something went wrong");
+      console.log(error);
+    }
+  };
 
   const columns = [
     {
@@ -59,8 +75,7 @@ function Types() {
           <div className="flex gap-2">
             <button
               onClick={() => {
-             // show the current types in the form 
-                setSelectedTypes(record);
+                getTypesById(record.key);
                 setShowTypesForm(true);
               }}
               className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md"
