@@ -21,24 +21,24 @@ const Navbar = () => {
     navigate("/");
   };
 
-
-
-
   return (
     <div class="fixed w-full">
       <div className="flex justify-between ju items-center h-full backdrop-blur-sm">
-        <div className="flex mt-8 ml-20 justify-center w-screen">
-          <Link
-            to="/"
-            className="flex items-center justify-center text-white text-2xl font-bold"
-          >
-            <img className="max-w-[250px]" src={logo} alt="/" />
-          </Link>
-        </div>
+        <div className="flex mt-8 ml-20 justify-center w-screen"></div>
         <div className="hidden md:flex text-white mr-5">
           <ul className="flex text-white items-center">
-            <li>Store</li>
+            <Link 
+            to="/Store"
+            className="flex items-center justify-center text-white hover:text-gray-400"
+            >
+              <li>Store</li>
+            </Link>
+            <Link
+              to="/contact"
+              className="flex items-center justify-center text-white hover:text-gray-400"
+            >
             <li>Contact</li>
+            </Link>
           </ul>
           {/* <Link
               to="/login"
@@ -51,14 +51,12 @@ const Navbar = () => {
         </div>
         {isAuthenticated ? (
           <button onClick={logout} className="mr-5 text-white">
-            
-            <RiLogoutBoxRFill className="text-2xl " size={20} />
+            <RiLogoutBoxRFill className="text-2xl hover:text-gray-400" size={20} />
           </button>
-          
         ) : (
           <Link
             to="/login"
-            className="flex items-center justify-center text-white text-2xl font-bold"
+            className="flex items-center justify-center text-white text-2xl font-bold hover:text-gray-400"
           >
             <button className="mr-5">
               <AiOutlineLogin className="text-2xl" size={20} />
@@ -74,18 +72,38 @@ const Navbar = () => {
         <div class="menu">
           <div>
             <ul>
+              <Link
+                to="/"
+                className="text-gray-800 text-4xl text-left"
+              >
               <li>
-                <a href="#">Home</a>
+                Home
               </li>
+              </Link>
+              <Link
+                to="/about"
+                className="text-gray-800 text-4xl text-left"
+              >
               <li>
-                <a href="#">About</a>
+              About
               </li>
+              </Link>
+              <Link
+                to="/services"
+                className="text-gray-800 text-4xl text-left"
+              >
               <li>
-                <a href="#">Services</a>
+              Services
               </li>
+              </Link>
+              <Link
+                to="/contact"
+                className="text-gray-800 text-4xl text-left"
+              >
               <li>
-                <a href="#">Contact</a>
+              Contact
               </li>
+              </Link>
             </ul>
           </div>
         </div>
