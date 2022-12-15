@@ -2,6 +2,7 @@ import { TypeModel } from '../models';
 import { DetailsModel } from '../models';
 import { ImageModel } from '../models';
 import { ColorModel } from '../models';
+// import mongoose from 'mongoose';
 
 export const getTypes = async (req, res) => {
   try {
@@ -32,40 +33,6 @@ export const createType = async (req, res) => {
         success: false,
         message: 'Type name already exists',
       });
-    }
-
-    // check for each details_id entered if it exists in the details collection
-    for (let i = 0; i < details.length; i++) {
-      const existingDetails = await DetailsModel.findById(details[i]);
-      if (!existingDetails) {
-        return res.status(409).send({
-          success: false,
-          message: 'Details id does not exist',
-        });
-      }
-    }
-
-    // check for each image_id entered if it exists in the images collection
-    for (let i = 0; i < image.length; i++) {
-      const existingImage = await ImageModel.findById(image[i]);
-      if (!existingImage) {
-        return res.status(409).send({
-          success: false,
-          message: 'Image id does not exist',
-        });
-      }
-    }
-
-    // check for each color_id entered if it exists in the colors collection
-
-    for (let i = 0; i < color.length; i++) {
-      const existingColor = await ColorModel.findById(color[i]);
-      if (!existingColor) {
-        return res.status(409).send({
-          success: false,
-          message: 'Color id does not exist',
-        });
-      }
     }
 
     const type = await TypeModel.create({
