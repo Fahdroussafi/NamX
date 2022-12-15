@@ -111,8 +111,10 @@ function CarForm({
                 name="car_type"
               >
                 <option value="">--Please choose an option--</option>
-                {types.map((type) => (
-                  <option value={type._id}>{type.type_name}</option>
+                {types.map((type, key) => (
+                  <option key={key} value={type._id}>
+                    {type.type_name}
+                  </option>
                 ))}
               </select>
             </Form.Item>
