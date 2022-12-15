@@ -1,19 +1,24 @@
-import React from "react";
+git import React from "react";
 import About from "../components/About";
 import Developers from "../components/Developers";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
-import Subscribe from "../components/Subscribe";
+// import Subscribe from "../components/Subscribe";
+import Teams from "../components/Teams";
+import Banner from "../components/Banner";
+
 
 function Index() {
   return (
-    <div>
+    <div className="overflow-hidden">
+      {/* <Banner /> */}
       <Navbar />
       <Hero />
-      <About />
+      {/* <About /> */}
       <Developers />
-      <Subscribe />
+      {/* <Subscribe /> */}
+      <Teams />
       <Footer />
     </div>
   );
