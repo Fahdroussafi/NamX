@@ -1,4 +1,4 @@
-git import React from "react";
+import React from "react";
 import About from "../components/About";
 import Developers from "../components/Developers";
 import Footer from "../components/Footer";
