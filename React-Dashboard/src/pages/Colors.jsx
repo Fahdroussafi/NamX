@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { axiosInstance } from "../helpers/axiosInstance";
-import { message, Table } from "antd";
+import { message, Table, PopConfirm } from "antd";
 import ColorsForm from "../components/Forms/ColorsForm";
-import DoneIcon from "../assets/icons/done.svg";
 
 function Colors() {
   const [colors, setColors] = useState([]);
@@ -20,6 +19,24 @@ function Colors() {
           };
         });
         setColors(mappedData);
+      } else {
+        message.error(response.data.message);
+      }
+    } catch (error) {
+      message.error("Something went wrong");
+      console.log(error);
+    }
+  };
+
+  const deleteColor = async (id) => {
+    try {
+      const response = await axiosInstance.delete(
+        `/api/color/delete-color/${id}`,
+        {}
+      );
+      if (response.data.success) {
+        message.success(response.data.message);
+        getColors();
       } else {
         message.error(response.data.message);
       }
@@ -57,7 +74,12 @@ function Colors() {
       dataIndex: "action",
       render: (text, record) => (
         <div className="flex gap-2">
-          <button className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md">
+          <button
+            onClick={() => {
+              deleteColor(record._id);
+            }}
+            className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 mr-2"
