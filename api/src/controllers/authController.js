@@ -70,6 +70,7 @@ export const Register = async (req, res) => {
       lastName: req.body.lastName,
       email: req.body.email,
       password: hashedPassword,
+      confirmPassword: hashedPassword,
       address: req.body.address,
       country: req.body.country,
       state: req.body.state,
