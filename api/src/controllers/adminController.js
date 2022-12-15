@@ -108,14 +108,14 @@ export const getAllUsers = async (req, res) => {
   try {
     const users = await UserModel.find();
     res.status(200).send({
-      message: 'All users',
-      status: true,
+      message: 'All users fetched successfully',
+      success: true,
       data: users,
     });
   } catch (error) {
     res.status(400).send({
       message: error.message,
-      status: false,
+      success: false,
       data: null,
     });
   }
