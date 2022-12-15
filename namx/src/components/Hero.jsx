@@ -19,10 +19,29 @@ const Hero = () => {
           <br />
           THE WAY FOR A NEW GENERATION OF HYDROGEN VEHICLES.
         </p>
+        <div className="flex flex-col justify-center  text-white px-4 text-center mt-56">
+          <p>
+            <span>&#10075;</span>
+            <span>&#10075;</span>
+            Our double ambition is to become a new reference in the world of{" "}
+            <br />
+            zero-emission cars, and to constantly explore new territories to{" "}
+            <br />
+            facilitate mobility of our consumers. NAMX is a collective project{" "}
+            <br />
+            built with the best industrial and technical partners in Europe and{" "}
+            <br />
+            Africa
+            <p className="text-xs">
+              <span>&#10088;</span>
+              Faouzi Annajan: Founder and President of NAMX{" "}
+              <span>&#10089;</span>
+            </p>
+            <span>&#10076;</span>
+            <span>&#10076;</span>
+          </p>
+        </div>
       </div>
-      {/* <div className="h-24 w-1/3 bg-slate-50 flex ml-96">
-        <p className='text-center text-black flex justify-center items-center text-2xl font-bold '>Total Volume Secured: $42,104,783,662.47</p>
-      </div> */}
     </div>
   );
 };
