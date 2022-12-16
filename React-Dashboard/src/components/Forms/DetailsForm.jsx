@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Modal, Row, Form, Col, message, Button, Input, Space } from "antd";
+import React from "react";
+import { Modal, Form, message, Button, Input, Space } from "antd";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 
 import { axiosInstance } from "../../helpers/axiosInstance";
@@ -62,8 +62,7 @@ function DetailsForm({
         autoComplete="off"
         layout="vertical"
         onFinish={onFinish}
-        // initialValues={selectedDetails}
-        initialValues={{ details: selectedDetails }}
+        initialValues={[{ details: selectedDetails?.details }]}
       >
         <Form.List name="details">
           {(fields, { add, remove }) => (
