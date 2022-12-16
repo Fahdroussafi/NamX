@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Modal, Row, Form, Col, message, Input, Space, Checkbox } from "antd";
-
+import { Modal, Row, Form, Col, message, Input, Space } from "antd";
 import { axiosInstance } from "../../helpers/axiosInstance";
 
 function TypesForm({
@@ -74,11 +73,6 @@ function TypesForm({
         } else {
           message.error("Type name already exists");
         }
-      } else {
-        response = await axiosInstance.put(
-          `/api/type/${selectedTypes._id}`,
-          values
-        );
       }
       if (response.data.success) {
         message.success(response.data.message);
@@ -120,10 +114,10 @@ function TypesForm({
   return (
     <Modal
       width={800}
-      title={type === "add" ? "Add Type" : "Update Type"}
+      title={type === "add" ? "Add Type" : "View Type"}
       open={showTypesForm}
       onCancel={() => {
-        // setSelectedTypes(null);
+        setSelectedTypes(null);
         setShowTypesForm(false);
       }}
       footer={false}
@@ -134,7 +128,7 @@ function TypesForm({
             <Form.Item label="Colors" name="color">
               <Space direction="vertical">
                 {colors.map((color, key) => (
-                  <div className="flex space-x-4 items-center p-2">
+                  <div key={key} className="flex space-x-4 items-center p-2">
                     <input
                       type="checkbox"
                       value={color._id}
@@ -154,11 +148,10 @@ function TypesForm({
             <Form.Item label="Images" name="image">
               <Space direction="vertical">
                 {images.map((image, key) => (
-                  <div className="flex space-x-4 items-center p-2">
+                  <div className="flex space-x-4 items-center p-2" key={key}>
                     <input
                       type="checkbox"
                       value={image._id}
-                      key={key}
                       onChange={handleImageChange}
                     />
                     <p>{image.name}</p>
