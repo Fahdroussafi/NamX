@@ -66,14 +66,16 @@ export const Register = async (req, res) => {
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
     const user = new UserModel({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       email: req.body.email,
       password: hashedPassword,
-      name: req.body.name,
+      confirmPassword: hashedPassword,
       address: req.body.address,
-      city: req.body.city,
-      state: req.body.state,
-      zip: req.body.zip,
       country: req.body.country,
+      state: req.body.state,
+      city: req.body.city,
+      zip: req.body.zip,
     });
     const savedUser = await user.save();
     res.send({

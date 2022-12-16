@@ -1,0 +1,58 @@
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --primary-blue: #00d8ff;
+  --primary-purple: #6a00ff;
+}
+
+.blue {
+  color: var(--primary-blue);
+}
+
+.outline {
+  background-color: transparent !important;
+}
+
+@layer base {
+  * {
+    @apply font-[Raleway];
+  }
+  h1 {
+    @apply text-xl  font-normal;
+  }
+  h2 {
+    @apply text-3xl font-light;
+  }
+  h3 {
+    @apply text-2xl font-light;
+  }
+  a {
+    @apply text-blue-500;
+  }
+  li {
+    @apply p-4;
+    @apply font-light;
+  }
+
+  button {
+    @apply font-light;
+    /* @apply bg-gradient-to-r from-[var(--primary-purple)] to-[var(--primary-blue)] py-3 px-7 rounded-3xl */
+  }
+}
