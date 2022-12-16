@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { axiosInstance } from "../helpers/axiosInstance";
-import { message, Table, PopConfirm } from "antd";
+import { message, Table } from "antd";
 import ColorsForm from "../components/Forms/ColorsForm";
 
 function Colors() {
   const [colors, setColors] = useState([]);
   const [showColorForm, setShowColorForm] = useState(false);
-  const [selectedColor, setSelectedColor] = useState(null);
 
   const getColors = async () => {
     try {
@@ -108,7 +107,6 @@ function Colors() {
   return (
     <div className="p-10">
       <div className="flex justify-between p-7">
-        {/* <PageTitle title="Buses" /> */}
         <button
           type="submit"
           className="relative inline-flex items-center justify-start
@@ -134,9 +132,6 @@ function Colors() {
         <ColorsForm
           showColorForm={showColorForm}
           setShowColorForm={setShowColorForm}
-          type={selectedColor ? "edit" : "add"}
-          selectedColor={selectedColor}
-          setSelectedColor={setSelectedColor}
           getData={getColors}
         />
       )}
