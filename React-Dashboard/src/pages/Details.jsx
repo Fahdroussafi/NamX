@@ -35,7 +35,6 @@ function Details() {
     {
       title: "Details Name",
       dataIndex: "details",
-      // render each details name in a new line using map
       render: (details) => (
         <div>
           {details.map((detail, key) => (
@@ -65,9 +64,7 @@ function Details() {
       render: (text, record) => (
         <div className="flex gap-2">
           <button
-            onClick={() => {
-              // deleteColor(record._id);
-            }}
+            onClick={() => {}}
             className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md"
           >
             <svg
@@ -86,6 +83,29 @@ function Details() {
             </svg>
             Delete
           </button>
+          <button
+            onClick={() => {
+              setSelectedDetails(record);
+              setShowDetailsForm(true);
+            }}
+            className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeLinecap="1.5"
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+              />
+            </svg>
+            Update
+          </button>
         </div>
       ),
     },
@@ -98,7 +118,6 @@ function Details() {
   return (
     <div className="p-10">
       <div className="flex justify-between p-7">
-        {/* <PageTitle title="Buses" /> */}
         <button
           type="submit"
           className="relative inline-flex items-center justify-start
