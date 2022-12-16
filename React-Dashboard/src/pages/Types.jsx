@@ -27,22 +27,6 @@ function Types() {
       console.log(error);
     }
   };
-  const getTypesById = async (id) => {
-    try {
-      const response = await axiosInstance.get(
-        `/api/type/get-type-by-id/${id}`,
-        {}
-      );
-      if (response.data.success) {
-        // setSelectedTypes(response.data.data);
-      } else {
-        message.error(response.data.message);
-      }
-    } catch (error) {
-      message.error("Something went wrong");
-      console.log(error);
-    }
-  };
 
   const columns = [
     {
@@ -74,10 +58,7 @@ function Types() {
           </button>
           <div className="flex gap-2">
             <button
-              onClick={() => {
-                getTypesById(record.key);
-                setShowTypesForm(true);
-              }}
+              onClick={() => {}}
               className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md"
             >
               <svg
@@ -121,7 +102,6 @@ function Types() {
   return (
     <div className="p-10">
       <div className="flex justify-between p-7">
-        {/* <PageTitle title="Buses" /> */}
         <button
           type="submit"
           className="relative inline-flex items-center justify-start
@@ -148,7 +128,7 @@ function Types() {
           setShowTypesForm={setShowTypesForm}
           type={selectedTypes ? "edit" : "add"}
           selectedTypes={selectedTypes}
-          // setSelectedTypes={setSelectedTypes}
+          setSelectedTypes={setSelectedTypes}
           getData={getTypes}
         />
       )}
