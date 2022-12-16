@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Modal, Row, Form, Col, message } from "antd";
 import { axiosInstance } from "../../helpers/axiosInstance";
 
@@ -8,7 +8,6 @@ function ColorsForm({
   type = "add",
   getData,
   selectedColor,
-  setSelectedColor,
 }) {
   const onFinish = async (values) => {
     try {
@@ -16,27 +15,16 @@ function ColorsForm({
         "/api/color/create-color",
         values
       );
-      if (type === "add") {
-        if (response.data.success) {
-          setShowColorForm(false);
-          getData();
-        } else {
-          message.error("Color already exists");
-        }
-      } else {
-        response = await axiosInstance.put(
-          `/api/color/${selectedColor._id}`,
-          values
-        );
-      }
       if (response.data.success) {
         message.success(response.data.message);
+        setShowColorForm(false);
+        getData();
       } else {
         message.error("Color already exists");
       }
+
       getData();
       setShowColorForm(false);
-      setSelectedColor(null);
     } catch (error) {
       message.error("Color already exists");
       console.log(error);
@@ -49,7 +37,6 @@ function ColorsForm({
       title={type === "add" ? "Add Color" : "Update Color"}
       open={showColorForm}
       onCancel={() => {
-        setSelectedColor(null);
         setShowColorForm(false);
       }}
       footer={false}
