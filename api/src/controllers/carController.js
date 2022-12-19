@@ -4,7 +4,10 @@ import { TypeModel } from '../models';
 // get all cars
 export const getCars = async (req, res) => {
   try {
-    const cars = await CarModel.find();
+    const cars = await CarModel.find().populate({
+      path: 'type_id',
+      model: TypeModel,
+    });
     res.status(200).send({
       success: true,
       message: 'All cars fetched successfully',
@@ -22,8 +25,8 @@ export const getCars = async (req, res) => {
 // create a car
 export const createCar = async (req, res) => {
   try {
-    const { name_car } = req.body;
-    const type = await TypeModel.findById(req.params.type_id);
+    const { name_car, type_id } = req.body;
+    const type = await TypeModel.findById(req.body.type_id);
     if (!type) {
       return res.status(400).send({
         message: 'Type not found',
@@ -31,11 +34,11 @@ export const createCar = async (req, res) => {
     }
     const newCar = new CarModel({
       name_car,
-      type_id: req.params.type_id,
+      type_id,
     });
     const car = await CarModel.findOne({
       name_car,
-      type_id: req.params.type_id,
+      type_id,
     });
     if (car) {
       return res.status(400).send({

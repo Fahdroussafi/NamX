@@ -5,7 +5,6 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 dotenv.config();
 
-
 // login admin
 export const loginAdmin = async (req, res) => {
   try {
@@ -87,20 +86,37 @@ export const registerAdmin = async (req, res) => {
   }
 };
 
-// get all users
-export const getAllUsers = async (req, res) => {
+// get admin by id
+export const getAdminById = async (req, res) => {
   try {
-    const users = await UserModel.find();
-    res.send({
-      message: 'All users',
-      status: true,
-      data: users,
+    const admin = await AdminModel.findById(req.params.admin_id);
+    res.status(200).send({
+      message: 'Admin fetched successfully',
+      success: true,
+      data: admin,
     });
   } catch (error) {
-    res.send({
+    res.status(500).send({
       message: error.message,
-      status: false,
+      success: false,
       data: null,
     });
   }
-}
+};
+
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await UserModel.find();
+    res.status(200).send({
+      message: 'All users fetched successfully',
+      success: true,
+      data: users,
+    });
+  } catch (error) {
+    res.status(400).send({
+      message: error.message,
+      success: false,
+      data: null,
+    });
+  }
+};

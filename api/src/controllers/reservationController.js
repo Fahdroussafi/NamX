@@ -19,15 +19,18 @@ export const createReservation = async (req, res) => {
       });
     }
     const newReservation = new ReservationModel({
-      user_id: req.params.user_id,
-      car_id: req.params.car_id,
+      user: req.params.user_id,
+      car: req.params.car_id,
       quantity: req.body.quantity,
     });
-    const reservation = await ReservationModel.findOne({
-      user_id: req.params.user_id,
-      car_id: req.params.car_id,
+
+    // check if the same user has already reserved the same car before
+    const ExistingReservation = await ReservationModel.findOne({
+      user: req.params.user_id,
+      car: req.params.car_id,
     });
-    if (reservation) {
+
+    if (ExistingReservation) {
       return res.status(400).send({
         success: false,
         message: 'Reservation already exists',
@@ -39,7 +42,7 @@ export const createReservation = async (req, res) => {
       from: process.env.EMAIL,
       to: user.email,
       subject: 'Booking confirmation',
-      text: `Dear ${user.name}, your booking for ${car.name_car} has been confirmed. Thank you for choosing us!`,
+      text: `Dear ${user.firstName}""${user.lastName}, your booking for ${car.name_car} has been confirmed. Thank you for choosing us!`,
     };
     transporter.sendMail(mailOptions, (err, data) => {
       if (err) {
@@ -66,7 +69,9 @@ export const createReservation = async (req, res) => {
 // get all reservations
 export const GetAllReservations = async (req, res) => {
   try {
-    const reservations = await ReservationModel.find();
+    const reservations = await ReservationModel.find()
+      .populate('user')
+      .populate('car');
     res.status(200).send({
       success: true,
       message: 'All reservations fetched successfully',

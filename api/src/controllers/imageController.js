@@ -1,46 +1,34 @@
 import { ImageModel } from '../models';
-import { CarModel } from '../models';
 
-// get all images
+export const CreateImage = async (req, res) => {
+  try {
+    const { name, img } = req.body;
+    const newImage = new ImageModel({
+      name,
+      img,
+    });
+    await newImage.save();
+    res.status(200).send({
+      message: 'Image uploaded successfully',
+      success: true,
+      data: newImage,
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+      success: false,
+      data: null,
+    });
+  }
+};
+
 export const getImages = async (req, res) => {
   try {
     const images = await ImageModel.find();
     res.status(200).send({
       success: true,
-      message: 'All images fetched successfully',
+      message: 'Images retrieved successfully',
       data: images,
-    });
-  } catch (error) {
-    res.status(500).send({
-      success: false,
-      message: 'Internal server error',
-      errorMessage: error.message,
-    });
-  }
-};
-
-// create an image
-export const createImage = async (req, res) => {
-  try {
-    const { name_image, image } = req.body;
-    const newImage = new ImageModel({
-      name_image,
-      image,
-    });
-    const existingImage = await ImageModel.findOne({
-      name_image,
-    });
-    if (existingImage) {
-      return res.status(400).send({
-        success: false,
-        message: 'Image name or car already exists',
-      });
-    }
-    await newImage.save();
-    res.status(201).send({
-      success: true,
-      message: 'Image created successfully',
-      data: newImage,
     });
   } catch (error) {
     res.status(500).send({

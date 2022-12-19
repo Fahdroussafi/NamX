@@ -3,12 +3,12 @@ import uniqueValidator from 'mongoose-unique-validator';
 
 const ImageSchema = new Schema(
   {
-    name_image: {
+    name: {
       type: String,
       required: true,
     },
-    image: {
-      type: Array,
+    img: {
+      type: String,
       required: true,
     },
   },

@@ -10,7 +10,7 @@ const router = Router();
 const { checkToken } = require('../middleware/adminMiddleware');
 
 router.get('/get-all-cars', checkToken, getCars);
-router.post('/create-car/:type_id', checkToken, createCar);
+router.post('/create-car', checkToken, createCar);
 router.put('/update-car/:type_id/:car_id', checkToken, updateCar);
 router.delete('/delete-car/:car_id', checkToken, deleteCar);
 
