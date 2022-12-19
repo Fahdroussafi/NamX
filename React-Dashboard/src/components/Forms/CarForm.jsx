@@ -33,17 +33,12 @@ function CarForm({
 
   const onFinish = async (values) => {
     try {
-      const response = await axiosInstance.post("/api/car/create-car", values);
+      let response = null;
       if (type === "add") {
-        if (response.data.success) {
-          setShowCarForm(false);
-          getData();
-        } else {
-          message.error("Car name or type already exists");
-        }
+        response = await axiosInstance.post("/api/car/create-car", values);
       } else {
         response = await axiosInstance.put(
-          `/api/car/${selectedCar._id}`,
+          `/api/car/update-car/${selectedCar._id}`,
           values
         );
       }

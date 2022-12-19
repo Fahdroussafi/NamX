@@ -64,8 +64,8 @@ export const createCar = async (req, res) => {
 // update a car
 export const updateCar = async (req, res) => {
   try {
-    const { name_car } = req.body;
-    const type = await TypeModel.findById(req.params.type_id);
+    const { name_car , type_id} = req.body;
+    const type = await TypeModel.findById(req.body.type_id);
     if (!type) {
       return res.status(400).send({
         message: 'Type not found',
@@ -81,7 +81,7 @@ export const updateCar = async (req, res) => {
       req.params.car_id,
       {
         name_car,
-        type_id: req.params.type_id,
+        type_id,
       },
       { new: true }
     );
