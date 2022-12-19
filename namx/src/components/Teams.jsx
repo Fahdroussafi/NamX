@@ -6,21 +6,21 @@ const people = [
     role: "FullStack Developer",
     imageUrl: "https://github.com/AmineElazzab.png",
     githubUrl: "https://github.com/AmineElazzab",
-    linkedinUrl: "#",
+    linkedinUrl: "https://www.linkedin.com/in/mohammed-amine-elazzab/",
   },
   {
     name: "Imane Moultamiss",
     role: "FullStack Developer",
     imageUrl: "https://github.com/moultamissimane.png",
-    githubUrl: "https://github.com/AmineElazzab",
-    linkedinUrl: "#",
+    githubUrl: "https://github.com/moultamissimane",
+    linkedinUrl: "https://www.linkedin.com/in/imane-moultamiss-07a307231/#",
   },
   {
     name: "Fahd Roussafi",
     role: "FullStack Developer",
     imageUrl: "https://github.com/Fahdroussafi.png",
     githubUrl: "https://github.com/Fahdroussafi",
-    linkedinUrl: "#",
+    linkedinUrl: "https://www.linkedin.com/in/fahd-roussafi/",
   },
 ];
 
